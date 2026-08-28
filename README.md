@@ -1,51 +1,56 @@
-# Counter-Strike Simulation (C++ Mini Project)
+# 🎮 Counter-Strike Simulation
 
-## نمای کلی پروژه
-این پروژه یک شبیه‌سازی ساده‌شده از بازی محبوب Counter Strike است که با زبان C++ پیاده‌سازی شده است و ویژگی‌هایی مانند مدیریت تیم، استفاده از سلاح‌ها، و ردیابی تاریخچه بازی را شامل می‌شود. این پروژه دارای یک سیستم منوی قدرتمند، احراز هویت کاربران، و مکانیک‌های مختلف گیم‌پلی است.
+A simplified C++ simulation of the classic Counter-Strike game, featuring team management, weapon systems, user authentication, and round-based gameplay — all backed by smart pointers and a solid test suite.
 
-## ساختار پروژه
+---
+
+## ✨ Features
+
+### 👤 User Management
+- User registration and login
+- Password hashing for secure authentication
+- Per-user match history and statistics
+
+### 🎯 Gameplay Mechanics
+- Team creation and management (Terrorists vs. Counter-Terrorists)
+- Budget-based weapon assignment for players
+- Round simulation with automatic winner determination
+
+### 🔫 Weapons
+- Multiple weapon types (AK47, M4A1, AWP, and more)
+- Configurable ammo count, price, and damage
+
+### 📜 Match History
+- Round-by-round result logging
+- Match history and per-user stats viewer
+
+### 🧠 Smart Pointers
+- Used throughout the codebase for safer, leak-free memory management
+
+### ✅ Testing
+- Unit tests for individual components
+- Integration tests for full gameplay scenarios
+- Performance tests under heavy load
+
+---
+
+## 📂 Project Structure
 
 ```
 .
-├── include/          # فایل‌های هدر (.h)
-├── src/              # فایل‌های سورس اصلی (.cpp) و main.cpp
-├── tests/            # تست‌های واحد، یکپارچه و عملکردی
-├── data/             # فایل‌های داده (تاریخچه بازی)
-├── CMakeLists.txt    # پیکربندی بیلد پروژه
+├── include/          # Header files (.h)
+├── src/              # Core source files (.cpp) and main.cpp
+├── tests/            # Unit, integration, and performance tests
+├── data/             # Data files (match history)
+├── CMakeLists.txt    # Build configuration
 └── .gitignore
 ```
 
-## ویژگی‌ها
+---
 
-**مدیریت کاربران:**
-- امکان ثبت‌نام و ورود به سیستم
-- هش کردن رمز عبور برای احراز هویت ایمن
-- تاریخچه و آمار اختصاصی هر کاربر
+## 🚀 Getting Started
 
-**مکانیک‌های بازی:**
-- ایجاد و مدیریت تیم‌ها (تروریست‌ها و ضدتروریست‌ها)
-- تخصیص سلاح به بازیکنان بر اساس budget آن‌ها
-- شبیه‌سازی راندها و تعیین تیم برنده
-
-**سلاح‌ها:**
-- انواع مختلفی از سلاح‌ها (مثل AK47، M4A1، AWP)
-- ویژگی‌هایی مانند تعداد گلوله، قیمت و میزان آسیب
-
-**تاریخچه بازی:**
-- ثبت نتایج هر راند
-- نمایش تاریخچه مسابقات و آمار مخصوص هر کاربر
-
-**اشاره‌گرهای هوشمند (Smart Pointers):**
-- استفاده از آن‌ها در سراسر پروژه برای مدیریت بهتر حافظه
-
-**تست‌ها:**
-- تست‌های واحد برای اجزای مختلف
-- تست‌های یکپارچه برای سناریوهای کامل بازی
-- تست‌های عملکردی برای اطمینان از پاسخ‌گویی سیستم تحت بار زیاد
-
-## نحوه اجرا
-
-### روش اول: با CMake (پیشنهادی)
+### Option 1 — Build with CMake (recommended)
 ```bash
 mkdir build && cd build
 cmake ..
@@ -53,31 +58,32 @@ cmake --build .
 ./CounterStrikeSimulation
 ```
 
-### روش دوم: کامپایل مستقیم با g++
+### Option 2 — Compile directly with g++
 ```bash
 g++ -std=c++17 -Iinclude src/*.cpp -o CounterStrikeSimulation -lpthread
 ./CounterStrikeSimulation
 ```
 
-> ⚠️ **نکته:** فایل `src/MenuManager.cpp` از هدر `<windows.h>` استفاده می‌کند و در حال حاضر فقط روی ویندوز کامپایل می‌شود. برای اجرا روی لینوکس/مک باید آن بخش (معمولاً برای پاک‌کردن صفحه یا رنگ کنسول) با معادل غیروابسته به پلتفرم جایگزین شود.
+> ⚠️ **Note:** `src/MenuManager.cpp` currently includes `<windows.h>` and only compiles on Windows. To build on Linux/macOS, replace that section (typically used for clearing the console or adding color) with a cross-platform equivalent.
 
-### پیروی از منو
-- به عنوان کاربر ثبت‌نام یا وارد شوید
-- تنظیمات بازی را پیکربندی کرده و شروع به بازی کنید
-- تاریخچه مسابقات و آمار کاربران را مشاهده کنید
+### Using the App
+1. Register or log in as a user
+2. Configure your game settings and start playing
+3. View match history and your personal stats
 
-## ساختار کد و تست‌ها
+---
 
-پروژه شامل تست‌های جامع برای اطمینان از صحت عملکرد و کارایی است:
+## 🧪 Code & Test Structure
 
-**تست‌های واحد (Unit Tests):**
-- تست اجزای مجزا مانند کلاس‌های Weapon، Player و GameManager
+The project includes comprehensive tests to verify correctness and performance:
 
-**تست‌های یکپارچه (Integration Tests):**
-- شبیه‌سازی یک سناریوی کامل بازی با تیم‌ها و راندها
+| Type | Description |
+|------|-------------|
+| **Unit Tests** | Test individual components like `Weapon`, `Player`, and `GameManager` |
+| **Integration Tests** | Simulate a full gameplay scenario with teams and rounds |
+| **Performance Tests** | Measure execution time for heavy operations, e.g. adding 1000 players |
 
-**تست‌های عملکردی (Performance Tests):**
-- اندازه‌گیری زمان اجرا برای عملیات سنگینی مانند افزودن ۱۰۰۰ بازیکن
+---
 
-## همکاران
-- مصطفی – توسعه‌دهنده اصلی و تنها مشارکت‌کننده در پروژه. تمامی مراحل توسعه، طراحی، تست و اجرای این پروژه توسط وی انجام شده است.
+## 👨‍💻 Contributors
+- **Mostafa** — Lead developer and sole contributor. Responsible for all stages of design, development, testing, and execution of this project.
